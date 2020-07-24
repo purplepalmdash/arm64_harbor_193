@@ -2,7 +2,7 @@ FROM photon:3.0
 
 MAINTAINER wangyan@vmware.com
 
-RUN tdnf install sudo -y >> /dev/null \
+RUN tdnf install -y sudo >> /dev/null \
     && tdnf clean all \
     && groupadd -r -g 10000 harbor && useradd --no-log-init -r -g 10000 -u 10000 harbor \
     && mkdir -p /etc/registry \

@@ -3,7 +3,7 @@ FROM photon:3.0
 MAINTAINER wangyan@vmware.com
 
 # The original script in the docker offical registry image.
-RUN tdnf install sudo -y >> /dev/null\
+RUN tdnf install -y sudo >> /dev/null\
     && tdnf clean all \
     && mkdir /harbor/ \
     && mkdir -p /etc/registry \
