@@ -27,7 +27,10 @@ mkdir -p binary
 rm -rf binary/$BIN_NAME || true
 cp compile.sh binary/
 
-docker run -it --rm -v $cur/binary:/go/bin --name golang_code_builder $GOLANG_IMAGE /bin/bash /go/bin/compile.sh $GIT_PATH $CODE_VERSION $MAIN_GO_PATH $BIN_NAME
+#docker run -it --rm -v $cur/binary:/go/bin --name golang_code_builder $GOLANG_IMAGE /bin/bash /go/bin/compile.sh $GIT_PATH $CODE_VERSION $MAIN_GO_PATH $BIN_NAME
+echo "before docker run for building"
+docker run  --rm -v $cur/binary:/go/bin --name golang_code_builder $GOLANG_IMAGE /bin/bash /go/bin/compile.sh $GIT_PATH $CODE_VERSION $MAIN_GO_PATH $BIN_NAME
+echo "after docker run for building"
 
 #Clear
 #docker rm -f golang_code_builder
